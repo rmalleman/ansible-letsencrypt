@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-letsencrypt
+
+ - name: install some dependencies
+   package: name = {{ item }} state=latest
+   with_items:
+     - git
+     - bc
+
+ - name: checkout letsencrypt
+   become_method: sudo
+   git: repo=https://github.com/letsencrypt/letsencrypt dest={{ letsencrypt_install_location }}
