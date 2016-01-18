@@ -2,7 +2,7 @@
 # tasks file for ansible-letsencrypt
 
  - name: install some dependencies
-   package: name = {{ item }} state=latest
+   package: name={{ item }} state=latest
    with_items:
      - git
      - bc
